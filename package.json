@@ -1,0 +1,7 @@
+{
+	"version": "1.0.0",
+	"dependencies": {
+		"command-line-args": "^5.1.3",
+		"command-line-usage": "^6.1.1"
+	}
+}
