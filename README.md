@@ -51,3 +51,38 @@ If you are lazy and dont want to keep running the wsi command to restart the int
 ```
 wsi -w somefile.wsc
 ```
+
+<br /><hr /><br />
+
+### language guide
+As mentioned before, WedgeScript is a stack based language, this means that while the interpreter is running, it has a first in first out datastructure under the hood, to which you can push and pop values like an array.
+
+As an example, you can push numbers by simply writing the number down `69 420` will first push 69 and then 420 to the stack, meaning the total length of the stack will be 2 elements. You can also use the - sign to indicate negative numbers and . to indicate fractions. Another literal you can push to the stack is strings, which are notated using ''.
+
+Then there are a whole bunch of commands that are single ascii characters that represent actions that can be done to the stack, for example: the `+` character can be used to pop 2 values from the stack, add them together and then push the result back onto the stack. Another example is `d` which is used to duplicate the top value of the stack, Or `o` which is used to output the top value to the stack.
+
+WedgeScript also has constructs like if, for and while, these are notated with (), {}, and [] respectively.
+
+Lets take a look at for loops, consider the code `5 4{o}` this will first push 5, and then push 4, then we encounter a for loop, a for loop will pop the top value from the stack (which in this case is 4) and thats how many times it will loop. therefore the code `1 100 {1 +o}` will loop 100 times and increment the 1 every time and print it, therefore printing the numbers 1 to 100.
+
+While statements are roughly the same but will instead pop a value every itteration and continue looping as long as that value is not 0, consider the code: `100 [od1 -]` this will push the number 100, then print it, subtract one from it, and repeat that until its 0.
+
+If statements are one again the same idea, instead it will pop only once and not repeat, if the value popped is 0, it will skip the code in (), else it will just execute it. Consider the following code `4 (7 +)o` this will push the number 4, if that is not 0, it will push 7 and add that creating 4 + 7 = 11, and then print that.
+
+
+<br /><hr /><br />
+
+### command table
+| command  | description  |
+|---|---|
+| p | pops the top value from the stack and discards it  |
+| d | pops the top value from the stack, and pushes it back twice, duplicating it |
+| c | combines the top 2 values by removing the from the stack and pushing them back as an array containing both of them |
+| C | first pops a value from the stack representing the count, then pop 'count' more values and combine them together in an array |
+| o | outputs the top value of the stack, no matter if its a string, an array, a number or whatever |
+| t | type convert, converts a type to another, for example it converts a number to a string (decoding it by ascii), turns an array of strings to a single string, an array of numbers into a string, etc |
+| : | concats the top 2 values on the stack, works with arrays and also with strings |
+| + | pops 2 values from the stack, adds them, pushes the result back |
+| - |  pops 2 values from the stack, subtracts them, pushes the result back |
+| * |  pops 2 values from the stack, multiplies them, pushes the result back |
+| / | pops 2 values from the stack, divides them, pushes the result back |
