@@ -1,4 +1,4 @@
-<p align="center"><a href="https://avatars.githubusercontent.com/u/87829930?s=200&v=4" target="_blank" rel="noopener noreferrer"><img width="100" src="https://avatars.githubusercontent.com/u/87829930?s=200&v=4" alt="Vue logo"></a></p>
+<p align="center"><img width="250" src="https://avatars.githubusercontent.com/u/87829930?s=200&v=4" alt="WS logo"></p>
 
 <p align="center">
   <img src="https://img.shields.io/david/WedgeScript/WedgeScript" />
