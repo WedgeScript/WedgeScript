@@ -1,3 +1,17 @@
+<p align="center"><a href="https://avatars.githubusercontent.com/u/87829930?s=200&v=4" target="_blank" rel="noopener noreferrer"><img width="100" src="https://avatars.githubusercontent.com/u/87829930?s=200&v=4" alt="Vue logo"></a></p>
+
+<p align="center">
+  <img src="https://img.shields.io/david/WedgeScript/WedgeScript" />
+  <img src="https://img.shields.io/bitbucket/issues/WedgeScript/WedgeScript" />
+  
+  <img src="https://img.shields.io/npm/v/wedgescript" />
+  
+  <img src="https://img.shields.io/npms-io/quality-score/wedgescript" />
+  <img src="https://img.shields.io/npm/dt/wedgescript" />
+  <img src="https://img.shields.io/tokei/lines/github/wedgescript/wedgescript" />
+</p>
+
+
 # WedgeScript
 
 <br /><br />
