@@ -1,4 +1,4 @@
-<p align="center"><img width="250" src="file:///home/luc/Desktop/wedgescript_logo.png" alt="WS logo"></p>
+<p align="center"><img width="250" src="https://raw.githubusercontent.com/WedgeScript/WedgeScript/master/wedgescript_logo.png" alt="WS logo"></p>
 
 <p align="center">
   <img src="https://img.shields.io/david/WedgeScript/WedgeScript" />
