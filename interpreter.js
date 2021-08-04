@@ -1,5 +1,5 @@
-const executor = require('./commands.js')
-
+const executor = require('./commands.js');
+const util = require('util');
 const stack = [];
 
 const gatherSubSection = (startChar, code, index) => {
@@ -34,7 +34,7 @@ const tokeniser = (code) => {
 	for(let i = 0; i < code.length; i++) {
 		const c = code[i];
 
-		if (parsingString || c == "'") {
+		if (parsingString || c == '"') {
 			if (c == "'" && parsingString) {
 				tokens.push({value: accumulator, type: 'string' })
 				parsingString = false;
@@ -48,7 +48,7 @@ const tokeniser = (code) => {
 			}
 		}
 
-		if (parsingNumber || c.match(/[-0-9]/g)) {
+		else if (parsingNumber || c.match(/[-0-9]/g)) {
 			if (c.match(/[\.0-9]/g) == null && parsingNumber) {
 				tokens.push({value: accumulator, type: 'number' })
 				parsingNumber = false;
@@ -66,7 +66,11 @@ const tokeniser = (code) => {
 			tokens.push(gathering.newToken)
 		}
 
-		else {
+		else if (c === '\'') {
+			tokens.push({value: code[++i], type: 'character' });
+		} else if (c === '|') {
+			tokens.push({value: 'INFINITE', code: tokeniser(code.substring(i + 1)), type: 'command'})
+		} else {
 			tokens.push({value: c, type: 'command' });
 		}
 	}
@@ -80,7 +84,7 @@ const tokeniser = (code) => {
 const wedgeScriptInterpreter = (code) => {
 	const tokens = tokeniser(code);
 
-	// console.log(util.inspect(tokens, {showHidden: false, depth: null}))
+	console.log(util.inspect(tokens, {showHidden: false, depth: null}))
 
 	executor(tokens);
 };

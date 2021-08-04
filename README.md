@@ -83,20 +83,23 @@ While statements are roughly the same but will instead pop a value every itterat
 
 If statements are one again the same idea, instead it will pop only once and not repeat, if the value popped is 0, it will skip the code in (), else it will just execute it. Consider the following code `4 (7 +)o` this will push the number 4, if that is not 0, it will push 7 and add that creating 4 + 7 = 11, and then print that.
 
+Wedgescipt also has the ability to push character literals to the stack with
 
 <br /><hr /><br />
 
 ### command table
 | command  | description  |
-|---|---|
-| p | pops the top value from the stack and discards it  |
-| d | pops the top value from the stack, and pushes it back twice, duplicating it |
-| c | combines the top 2 values by removing the from the stack and pushing them back as an array containing both of them |
-| C | first pops a value from the stack representing the count, then pop 'count' more values and combine them together in an array |
-| o | outputs the top value of the stack, no matter if its a string, an array, a number or whatever |
-| t | type convert, converts a type to another, for example it converts a number to a string (decoding it by ascii), turns an array of strings to a single string, an array of numbers into a string, etc |
-| : | concats the top 2 values on the stack, works with arrays and also with strings |
-| + | pops 2 values from the stack, adds them, pushes the result back |
-| - |  pops 2 values from the stack, subtracts them, pushes the result back |
-| * |  pops 2 values from the stack, multiplies them, pushes the result back |
-| / | pops 2 values from the stack, divides them, pushes the result back |
+|----|---|
+| p  | pops the top value from the stack and discards it  |
+| d  | pops the top value from the stack, and pushes it back twice, duplicating it |
+| c  | combines the top 2 values by removing the from the stack and pushing them back as an array containing both of them |
+| C  | first pops a value from the stack representing the count, then pop 'count' more values and combine them together in an array |
+| o  | outputs the top value of the stack, no matter if its a string, an array, a number or whatever |
+| t  | type convert, converts a type to another, for example it converts a number to a string (decoding it by ascii), turns an array of strings to a single string, an array of numbers into a string, etc |
+| :  | concats the top 2 values on the stack, works with arrays and also with strings |
+| +  | pops 2 values from the stack, adds them, pushes the result back |
+| -  |  pops 2 values from the stack, subtracts them, pushes the result back |
+| *  |  pops 2 values from the stack, multiplies them, pushes the result back |
+| /  | pops 2 values from the stack, divides them, pushes the result back |
+| \| | Loops everything after this infinitely |
+| ' | character literal push, takes the next character in the code and pushes that to the stack  |

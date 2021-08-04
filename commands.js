@@ -98,10 +98,18 @@ const _while = (stack, code) => {
 	}
 }
 
+const _infinite = (stack, code) => {
+	while (true) {
+		executor(code);
+	}
+};
+
 const executor = (tokens) => {
 	tokens.forEach((token, i) => {
 		if (token.type == 'number')
 			stack.push(Number(token.value));
+		else if (token.type == 'character')
+			stack.push(token.value)
 		else if (token.type == 'string'){ 
 			stack.push(token.value);
 		}
@@ -148,6 +156,9 @@ const executor = (tokens) => {
 					break;
 				case 'WHILE':
 					_while(stack, token.code);
+					break;
+				case 'INFINITE':
+					_infinite(stack, token.code);
 					break;
 			}
 		}
