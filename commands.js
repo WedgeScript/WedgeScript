@@ -56,7 +56,7 @@ const concat = (stack) => {
 };
 
 const output = (stack) => {
-	console.log(stack[stack.length - 1])
+	process.stdout.write(stack[stack.length - 1])
 }
 
 const type_convert = (stack) => {
