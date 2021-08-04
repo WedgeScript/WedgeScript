@@ -35,10 +35,11 @@ const tokeniser = (code) => {
 		const c = code[i];
 
 		if (parsingString || c == '"') {
-			if (c == "'" && parsingString) {
+			if (c == '"' && parsingString) {
 				tokens.push({value: accumulator, type: 'string' })
 				parsingString = false;
 				accumulator = '';
+				
 				continue;
 			} else {
 				if (parsingString)
@@ -53,6 +54,8 @@ const tokeniser = (code) => {
 				tokens.push({value: accumulator, type: 'number' })
 				parsingNumber = false;
 				accumulator = '';
+				--i;
+				continue;
 			} else {
 				accumulator += c;
 				parsingNumber = true;
@@ -84,7 +87,7 @@ const tokeniser = (code) => {
 const wedgeScriptInterpreter = (code) => {
 	const tokens = tokeniser(code);
 
-	console.log(util.inspect(tokens, {showHidden: false, depth: null}))
+	// console.log(util.inspect(tokens, {showHidden: false, depth: null}))
 
 	executor(tokens);
 };
